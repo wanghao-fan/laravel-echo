@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\PublicMessageEvent;
+use App\Events\PrivateMessageEvent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,12 @@ Route::get('/echo', function () {
 
 Route::get('/push/{message}', function ($message) {
     broadcast(new PublicMessageEvent($message));
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/privatePush/{message}', function ($message) {
+    $user = \Illuminate\Support\Facades\Auth::user();
+    broadcast(new PrivateMessageEvent($user, $message));
 });

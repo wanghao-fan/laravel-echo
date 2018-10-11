@@ -13694,9 +13694,8 @@ module.exports = __webpack_require__(37);
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -13709,6 +13708,10 @@ __webpack_require__(12);
 Echo.channel('push').listen('.push.message', function (e) {
     alert(e.message);
     console.log(e);
+});
+
+Echo.private('privatePush' + window.id).listen('privatePush.message', function (e) {
+    console.log(e.update);
 });
 
 /***/ }),

@@ -13,3 +13,8 @@ Echo.channel('push')
         alert(e.message)
         console.log(e);
     });
+
+Echo.private('privatePush' + window.id)
+    .listen('privatePush.message', (e) => {
+        console.log(e.update);
+    });
