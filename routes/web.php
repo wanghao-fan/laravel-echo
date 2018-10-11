@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\PublicMessageEvent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +14,12 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/echo', function () {
+    return view('echo');
+});
+
+Route::get('/push/{message}', function ($message) {
+    broadcast(new PublicMessageEvent($message));
 });
