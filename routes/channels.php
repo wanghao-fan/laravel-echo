@@ -16,5 +16,7 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('privatePush.{id}', function ($user, $id) {
+    \Illuminate\Support\Facades\Log::info('12312312312312312321');
+    \Illuminate\Support\Facades\Log::info('type:'. (int) $user->id === (int) $id);
     return (int) $user->id === (int) $id;
 });

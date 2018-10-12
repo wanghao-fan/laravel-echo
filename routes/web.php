@@ -28,7 +28,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/privatePush/{message}', function ($message) {
-    $user = \Illuminate\Support\Facades\Auth::user();
+Route::get('/privatePush/{message}/{id}', function ($message, $id) {
+    $user = \App\User::find($id);
+    if (empty($user)) return '无此用户';
     broadcast(new PrivateMessageEvent($user, $message));
 });

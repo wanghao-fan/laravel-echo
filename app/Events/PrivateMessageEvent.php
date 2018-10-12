@@ -41,14 +41,14 @@ class PrivateMessageEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('privatePush' . $this->user->id);
+        return new PrivateChannel('privatePush.' . $this->user->id);
     }
 
-    //Laravel 默认会使用事件的类名作为广播名称来广播事件，自定义：
-    public function broadcastAs()
-    {
-        return 'privatePush.message';
-    }
+//    //Laravel 默认会使用事件的类名作为广播名称来广播事件，自定义：
+//    public function broadcastAs()
+//    {
+//        return 'privatePush.message';
+//    }
 
     //想更细粒度地控制广播数据:
     public function broadcastWith()
