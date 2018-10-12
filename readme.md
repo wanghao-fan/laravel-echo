@@ -53,4 +53,6 @@ laravel-echo-server init
 
 laravel-echo-server start
 
-详细文档
+[详细文档](https://www.iwhao.top/article/24)
+
+
