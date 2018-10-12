@@ -18,6 +18,11 @@
 <div class="flex-center position-ref full-height">
     Echo
 </div>
+<script>
+    @if(!empty(Auth::user()))
+        window.id = "{{Auth::user()->id}}"
+    @endif
+</script>
 <script src="/js/app.js"></script>
 </body>
 </html>

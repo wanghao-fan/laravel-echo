@@ -13709,6 +13709,10 @@ Echo.channel('push').listen('.push.message', function (e) {
     alert(e.message);
     console.log(e);
 });
+Echo.private('privatePush.' + window.id).listen('PrivateMessageEvent', function (e) {
+    alert('qweqwe');
+    console.log(e);
+});
 
 /***/ }),
 /* 12 */
